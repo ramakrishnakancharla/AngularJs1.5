@@ -1,0 +1,37 @@
+<div class="container-fluid his-container" style="margin-top:20px">
+        <!-- <ng-include src="'app/consumer/his17_1/common/permanent-registration/sections/permanentregistration.headerpanel.html'">
+        </ng-include> -->
+        <uib-accordion close-others="theme.oneAtATime">
+          <div uib-accordion-group class="his-panel" heading="MODALITY" template-url="his-heading-template.html">
+            <ng-include src="'app/consumer/his17_1/RIS/screens/sections/ris.form.html'">
+            </ng-include>
+          </div>
+        </uib-accordion>
+		
+		
+		<uib-accordion close-others="theme.oneAtATime">
+          <div uib-accordion-group class="his-panel" heading="MODALITY DETAILS" template-url="his-heading-template.html">
+            <ng-include src="'app/consumer/his17_1/RIS/screens/sections/ris.grid.html'">
+            </ng-include>
+          </div>
+        </uib-accordion>
+		
+		
+      </div>
+      <script type="text/ng-template" id="his-heading-template.html">
+        <div>
+          <hr class="his-heading-line">
+          <h4>
+              <span tabindex="0" class="accordion-toggle" ng-click="toggleOpen()" uib-accordion-transclude="heading">
+      
+                <span class="his-section-heading-text">{{heading}}</span>
+              </span>
+              <i class="his-section-heading-icon pull-right fa" ng-click="toggleOpen()" ng-class="{'fa-angle-double-right':!isOpen,'fa-angle-double-down':isOpen}"></i>
+            </h4>
+        </div>
+        <div class="panel-collapse collapse" uib-collapse="!isOpen">
+          <div ng-transclude></div>
+        </div>
+      </script>
+      
+      

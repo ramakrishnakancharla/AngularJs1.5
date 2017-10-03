@@ -1,0 +1,163 @@
+
+<!-- <div align="center"> -->
+<!-- <img  id="image" src="../src/app/consumer/his17_1/RIS/screens/images/test_image.jpg" width="80%" /><br/> -->
+<!-- </div> -->
+<!-- <div align="center"> -->
+<!-- <button id="toggleEdit">Edit</button> <button id="export">Export</button> -->
+<!-- </div> -->
+<div class="row">
+	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">        
+		<div class="deposit-masters-background-color">
+			<form name="workOrderSearchForm" novalidate autocomplete="off">
+				<div class="row">
+					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 padding-zero">
+						<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+                            <label><span class="req-field">Date</span></label><br>
+									<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 padding-left-zero">
+                                        <div class="his-custom-calendar">
+								        <div class="his-form">
+										<div class="form-group">
+											<div class="input-group remove-date-border">	                                
+												<input class="form-control dateType" datetimepicker ng-model="orderWList.fromDate" options="startDateOptions" format="DD/MM/yyyy" placeholder="Start" name="fromDate" ng-required="true" allow-pattern="(\d|\/)"  ng-change="changeStartDate(orderWList.fromDate)"/>
+												<span class="input-group-addon" style="background-color: #FFF;padding-top: 4.5px !important;">
+													<span class="glyphicon glyphicon-calendar"></span>
+												</span>
+											</div>
+											<span ng-show="workOrderSearchForm.fromDate.$error.required && (workOrderSearchForm.fromDate.$dirty || showErrors)" class="help-block error-msg-cls">
+												is Required
+											</span>
+										</div>
+                                    </div>
+                                </div>
+									</div>
+									<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 column-left-space padding-zero">
+                                        <div class="his-custom-calendar">
+								<div class="his-form">
+										<div class="form-group">	                            
+											<div class="input-group remove-date-border">
+												<input class="form-control dateType" datetimepicker name="toDate" format="DD/MM/YYYY" ng-model="orderWList.toDate" options="endDateOptions" placeholder="End" ng-required="true" allow-pattern="(\d|\/)"/>
+												<span class="input-group-addon" style="background-color: #FFF;padding-top: 4.5px !important;"><span class="glyphicon glyphicon-calendar"></span></span>
+											</div>
+											<span ng-show="workOrderSearchForm.toDate.$error.required && (workOrderSearchForm.toDate.$dirty || showErrors)" class="help-block error-msg-cls">
+												is Required
+											</span>
+                                        </div>
+                                    </div>
+										</div>
+									</div>
+								
+						</div>
+                        
+						<div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
+							<div class="form-group">
+								<label><span class="req-field">Department</span></label>
+								<select class="form-control" name="department" ng-model="orderWList.department" ng-options="department.DESCRIPTION for department in departmentsDetails track by department.CODE" ng-change="loadSubDepartment(orderWList.department.CODE);" ng-required="true">
+
+								</select>
+								<span ng-show="workOrderSearchForm.department.$error.required && (workOrderSearchForm.department.$dirty || showErrors)" class="help-block error-msg-cls">
+									is Required
+								</span>
+							</div>
+						</div>				
+						<div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+							<div class="form-group">
+								<label><span class="req-field">Sub Department</span></label>
+								<select class="form-control" name="subDepartment" ng-model="orderWList.subDepartment" ng-options="subDepartment.DESCRIPTION for subDepartment in subDepartmentsDetails track by subDepartment.SUB_CODE"  ng-required="true">
+
+								</select>
+								<span ng-show="workOrderSearchForm.subDepartment.$error.required && (workOrderSearchForm.subDepartment.$dirty || showErrors)" class="help-block error-msg-cls">
+									is Required
+								</span>
+							</div>
+						</div>
+                        
+						<div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+							<div class="form-group">
+								<label>Order No.</label>
+									<input type="text" class="form-control" placeholder="Enter" name="orderNumber" ng-model="orderWList.orderNumber">
+							</div>
+						</div>
+						
+					</div>
+				</div>			
+				<div class="deposit-masters-toggle-div" ng-show="options">
+					<div class="row">
+						<div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+							<div class="form-group">
+								<label>MR No.</label>
+								<input type="text" class="form-control" placeholder="Enter" name="mrNumber" ng-model="orderWList.mrNumber">
+							</div>
+						</div>
+						<div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+							<div class="form-group">
+								<label>Patient ID</label>
+								   <input type="text" class="form-control" placeholder="Enter" name="ipNumber" ng-model="orderWList.ipNumber">
+							</div>
+						</div>
+						<div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+							<div class="form-group">
+								<label>Patient Name</label>
+									<input type="text" class="form-control" placeholder="Enter" name="patName" ng-model="orderWList.patName">
+							</div>
+						</div>
+						<div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+							<div class="form-group">
+								<label>Priority</label>
+								<select class="form-control" name="priority" ng-model="orderWList.priority" ng-options="priority.CODE as priority.DESCRIPTION for priority in priorityDetails">
+									<option value="">Select</option>                         
+								</select>
+							</div>
+						</div>
+					</div>
+					
+					<div class="row">
+						<div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+							<div class="form-group">
+								<label>Patient Type</label>
+								<select class="form-control" name="patientType" ng-model="orderWList.patientType" ng-options="patientType.CODE as patientType.DESCRIPTION for patientType in patientsTypeDetails">
+									<option value="">Select</option>                         
+								</select>
+							</div>
+						</div> 
+						
+						<div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+							<div class="form-group">
+								<label>Status</label>
+								<select class="form-control" name="status" ng-model="orderWList.status" ng-options="status.CODE as status.DESCRIPTION for status in statusDetails">
+									<option value="">Select</option>                         
+								</select>
+							</div>
+						</div>
+						
+						<div class="col-xs-12 col-sm-12 col-md-3 col-lg-3" ng-hide="true">
+							<div class="form-group">
+								<label>Ordered By</label>
+								<select class="form-control" name="orderedBy" ng-model="orderWList.orderedBy" ng-options="orderedBy.CODE as orderedBy.DESCRIPTION for orderedBy in orderByDetails">
+									<option value="">Select</option>                         
+								</select>
+							</div>
+						</div>
+						
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+						<span class="toggle-show-details">
+							  <a href="" ng-click="options = !options;changeMsg();">
+								  <i ng-class="{'fa fa-minus-circle': options, 'fa fa-plus-circle': !options}"></i>{{options && '  Less options' || '  More options'}}
+							</a>
+						</span>
+					 </div>
+					 <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+						&nbsp;
+					 </div>
+					 <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 text-right">
+						<button class="btn btn-primary btn-sm" ng-click="searchOrderWorklist(orderWList,workOrderSearchForm);"><i class="fa fa-search"></i> SEARCH</button>            
+						<a ng-click="OrderWorklistClear(orderWList);"><u>Clear</u></a>
+						
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>

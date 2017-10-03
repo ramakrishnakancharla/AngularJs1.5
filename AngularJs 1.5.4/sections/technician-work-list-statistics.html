@@ -1,0 +1,29 @@
+<div class="row statistics-tabs">
+    <div class="col-sm-12 col-md-12 col-lg-12">
+		<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3" ng-click="StatsGridLoad(pSeqid)">
+            <div class="statistic-layout red-border">
+                <div class="statistic-number red-bg"><strong>{{pCnt?pCnt:"0"}}</strong></div>
+                <div class="statistic-text"><span>{{pDec?pDec:"Pending"}}</span></div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3" ng-click="StatsGridLoad(aSeqid)">
+            <div class="statistic-layout yello-border">
+                <div class="statistic-number yello-bg"><strong>{{aCnt?aCnt:"0"}}</strong></div>
+                <div class="statistic-text"><span>{{aDesc?aDesc:"Arrived"}}</span></div>
+            </div>
+        </div>
+
+        <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3" ng-click="StatsGridLoad(inSeqid)">
+            <div class="statistic-layout blue-border">
+                <div class="statistic-number blue-bg"><strong>{{inCnt?inCnt:"0"}}</strong></div>
+                <div class="statistic-text"><span>{{inDesc?inDesc:"Investigation In Progress"}}</span></div>
+            </div>
+        </div>
+		<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3" ng-click="StatsGridLoad(cSeqid)">
+            <div class="statistic-layout green-border">
+                <div class="statistic-number green-bg"><strong>{{cCnt?cCnt:"0"}}</strong></div>
+                <div class="statistic-text"><span>{{cDesc?cDesc:"Investigation Completed"}}</span></div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,40 @@
+<div class="container-fluid his-container ris-container" style="padding-left: 0px; padding-right: 0px;">
+<form class="his-form">
+        <div class="row">
+                <div class="col-sm-6 col-md-3 col-lg-3 pull-left" style="padding-left: 0px;">
+                        
+                                <div class="form-group cust-search-addon">
+                                        
+                                        <div class="input-group">
+                                        <input type="text" class="form-control" aria-label="Search" placeholder="Enter" ng-model="gridApi.grid.columns[0].filters[0].term">
+                                        <span class="input-group-addon" style="border-top: 0px; border-bottom:0px;"><i class="fa fa-search"></i></span>
+                                        </div>
+                                    </div>
+                        
+                      </div>
+                    
+                      <div class="col-sm-6 col-md-6 col-lg-6 his-grid-actions">
+                        <div class="pull-right">
+                          <div class="btn-group" role="group">
+						  <button type="button" class="btn btn-default">
+          <i class="fa fa-print"></i>
+        </button>
+		<span class="text-muted">|</span>
+                            <div class="his-inline record-count">
+                              <span class="text-muted">Display</span>
+                              <span class="text-muted">Records</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+        </div>
+      </form>
+      
+      <div class="col-md-12 mygrid grid-height-ten-records" style="padding: 0px;" ng-init="loadModalityRelatedData()">
+            <div ui-grid="ReportDispatchgridOptions" ui-grid-auto-resize ui-grid-resize-columns class="grid">
+            </div>
+          </div>
+</div>
+
+
+

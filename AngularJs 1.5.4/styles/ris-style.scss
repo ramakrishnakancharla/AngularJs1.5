@@ -1,0 +1,55 @@
+.ris-container{
+.switch-alignment{
+margin-top: -21px;
+    margin-left: 38px;
+}
+ form{
+     padding-bottom: 10px;
+     padding-top: 10px;
+ }
+ .input-group-addon{
+     border-radius: 0px;
+ }
+ .ui-grid-filter-container { display: none!important; }
+ .col-sm-3 .col-md-3 .col-lg-3{
+     padding: 0px;
+ }
+ md-switch.wlabel .md-bar::before {
+    content: "OFF";
+    color: white;
+    position: absolute;
+    right: 0;
+    font-size: 7px;
+    line-height: 13px;
+    padding-right: 3px;
+  }
+  md-switch.wlabel.md-checked .md-bar::before {
+    content: "ON";
+    color: white;
+    left: 0;
+    padding-left: 3px;
+  }
+ /*.toggle-switch {
+      border: 1px solid;
+      height: 10px;
+      border-radius: 10px;
+      min-width: 20px !important;
+
+      span {
+        line-height: 15px !important;
+      }
+    }*/ 
+.grid-height-ten-records {
+.ui-grid-render-container-body .ui-grid-viewport {
+max-height: 301px !important;
+}
+.ui-grid {
+max-height: 334px !important;
+}
+.ui-grid-viewport {
+max-height: 291px !important;
+}
+} 
+
+  
+}

@@ -1,0 +1,120 @@
+<div class="patient-banner" ng-init="patientBannerCollapsed = true">
+    <table width="100%" class="table table-responsive his-grey-border">
+        <tr>
+            <!-- Patient Image  -->
+            <td align="center" style="width: 10%;" class="his-grey-border">
+                <span class="custom-triange">
+					<div class="triangle"></div>
+				</span>
+                <div class="custom-td-sizing">
+                    <i class="fa fa-mars his-patientbanner-gendericon"></i>
+                    <img src="assets/male.png" class="img-circle his-patient-image">
+                </div>
+            </td>
+            <!-- Patient Info Starts-->
+            <td style="width: 90%;" class="his-grey-border his-no-left-border">
+                <!-- Patient Banner Row-1 Starts -->
+                <div class="row">                  
+                    <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 his-patientbanner-extra-margin his-pb-cell">
+                        <span class="his-patient-name">{{headerbanner.salutation}}&nbsp;{{headerbanner.patientName}}<span class="his-normal-font"> ({{headerbanner.age.split(' ')[0]}} Yrs)</span></span>
+                        <br>
+                        <span class="his-patientbanner-text">{{headerbanner.mrNo}}</span>
+                    </div>
+                    <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 his-pb-cell">
+                        <span class="his-patientbanner-label">Visit Number</span>
+                        <br>
+                        <span class="his-patientbanner-text">{{headerbanner.encounterNo}}</span>
+                    </div>
+                    <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 his-pb-cell his-patientbanner-extra-margin">
+                        <span class="his-patientbanner-label">Date of Birth</span>
+                        <br>
+                         <span class="his-patientbanner-text">
+                             {{headerbanner.dob.split(' ')[0]|date:"dd/MM/yyyy"}}</span> 
+                    </div>
+                    <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 his-pb-cell">
+                        <span class="his-patientbanner-label">Blood Group</span>
+                        <br>
+                        <span class="his-patientbanner-text">
+                        {{headerbanner.bloodGP}}</span>
+                    </div>
+                    <div class="pull-right">
+                        <span class="his-patientbanner-label">&nbsp;</span>
+                        <br>
+                        <span><i class="fa fa-pencil his-patientbanner-edit-icon"></i></span>
+                        <span class="his-patientbanner-vercial-bar">|</span>
+                        <span><i class="fa fa-note-pin his-patientbanner-settings-icon"></i></span>
+                        <span class="his-patientbanner-vercial-bar">|</span>
+                        <span ng-show="patientBannerCollapsed">
+						  <i class="fa fa-angle-double-down angle-doublt-down-positioning" ng-click="patientBannerCollapsed = false"></i>
+						</span>
+                     
+                    </div>
+                    <br>
+                    <br>
+                    <br>
+                </div>
+                <!-- Patient Banner Row-1 Ends -->
+                <hr class="his-heading-line">
+                <!--Horizontal Divider-->
+                <!-- Patient Banner Row-2 Starts -->
+                <div uib-collapse="patientBannerCollapsed" class="his-pb-cust-row-spacing">
+                    <div class="row">
+                        <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 his-patientbanner-extra-margin his-pb-cell">
+                            <span class="his-patientbanner-label">Patient Category</span>
+                            <br>
+                            <span class="his-patientbanner-text">{{headerbanner.patientCategory}}</span>
+                        </div>
+                        <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 his-pb-cell">
+                            <span class="his-patientbanner-label">Insurance Company</span>
+                            <br>
+                            <span class="his-patientbanner-text">{{headerbanner.insuranceComp}}</span>
+                        </div>
+                        <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 his-patientbanner-extra-margin his-pb-cell">
+                            <span class="his-patientbanner-label">Plan Type/Name</span>
+                            <br>
+                            <span class="his-patientbanner-text">{{headerbanner.insurancePlan}}</span>
+                        </div>
+                        <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 his-pb-cell">
+                            <span class="his-patientbanner-label">Plan Effective From</span>
+                            <br>
+                            <span class="his-patientbanner-text">{{headerbanner.pEffectivedate.$|date:"dd/MM/yyyy"}}</span>
+                        </div>
+                        <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 his-pb-cell">
+                            <span class="his-patientbanner-label">Plan Effective To</span>
+                            <br>
+                            <span class="his-patientbanner-text">{{headerbanner.pExpiredate.$|date:"dd/MM/yyyy"}}</span>
+                        </div>
+                    </div>
+                    <!--  patient banner row-2 ends -->
+                    <hr class="his-heading-line">
+                    <!--Horizontal Divider-->
+                    <!-- patient banner row-3 starts -->
+                    <div class="row">
+                        <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 his-patientbanner-extra-margin his-pb-cell">
+                            <span class="his-patientbanner-label">Diagnosis</span>
+                            <br>
+                            <span class="his-patientbanner-text"> ---</span>
+                        </div>
+                        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 his-pb-cell his-patientbanner-extra-margin">
+                            <span class="his-patientbanner-label">Allergies</span>
+                            <br>
+                            <span class="his-patientbanner-text">---</span>
+                            <a class="his-patientbanner-anchor-tag" uib-tooltip="Additional Allergies will be shown here...."></a>
+                        </div>
+                        <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 his-pb-cell">
+                            <span class="his-patientbanner-label">Triage</span>
+                            <br>
+                            <span class="label his-patientbanner-triage-emergency-color"><strong>2</strong></span><span class="his-patientbanner-text">--</span>
+                        </div>
+                        <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1 pull-right" ng-hide="patientBannerCollapsed">
+                            <i class="fa fa-angle-double-up pull-right" ng-click="patientBannerCollapsed = true"></i>
+                        </div>
+                    </div>
+                    <!-- patient banner row-3 ends -->
+                </div>
+                
+            </td>
+            <!-- Patient Info Ends-->
+        </tr>
+    </table>
+</div>

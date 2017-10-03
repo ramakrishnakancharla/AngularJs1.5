@@ -1,0 +1,36 @@
+<input type="hidden" ng-model="queGrp.grpseqid" />
+<input type="hidden" ng-model="queGrp.grpname" />
+<input type="hidden" ng-model="queGrp.grporder" />
+<div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" ng-repeat="rec in checklistData">
+		<div class="col-sm-6 col-md-6 col-lg-6">
+			<div class="form-group">
+				<div class="selector-group">
+					<label class="checkbox-inline">
+					<input type="checkbox" ng-model="checkListRec['QueSeqId_'+rec.checkListSeqNo]" name="QueSeqId_{{$index}}"  value="{{rec.checkListSeqNo}}"> {{rec.checkListName}}
+					<input type="hidden" ng-model="checkListRec['QueSeqNo_'+rec.checkListSeqNo]">
+					</label>
+				</div>
+			</div>
+		</div>
+		
+		<div class="col-sm-6 col-md-6 col-lg-6">
+			<div class="form-group" >
+				<label>&nbsp;</label> 
+				<input type="text" class="form-control cust-from-control margin-btm-space" placeholder="Enter" ng-model="checkListRec['QueDesc_'+rec.checkListSeqNo]" ng-disabled="!checkListRec['QueSeqId_'+rec.checkListSeqNo]" value="">
+			</div>
+		</div>    
+    </div>
+	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+		<div class="col-sm-6 col-md-6 col-lg-6">
+			<div class="form-group">        
+				<label>&nbsp;Remarks</label>
+			</div>
+		</div>
+		<div class="col-sm-6 col-md-6 col-lg-6">
+			<div class="form-group">
+				<input type="text" class="form-control cust-from-control margin-btm-space" ng-model="checkListRemarks.Remarks" placeholder="Enter" value="">
+			</div>
+		</div>
+	</div>
+</div>

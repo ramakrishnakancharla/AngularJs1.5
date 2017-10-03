@@ -1,0 +1,43 @@
+<ng-include src="'app/consumer/his17_1/RIS/screens/sections/patient.banner.html'">
+</ng-include>
+    <form class="his-form" name="theme.sampleForm">
+        <div class="container-fluid his-container padding-zero">
+          <uib-accordion close-others="theme.oneAtATime">
+            <div uib-accordion-group class="his-panel" is-open="true" heading="Investigation details" template-url="his-heading-template.html">
+              <ng-include src="'app/consumer/his17_1/RIS/screens/templates/RIS-techician-workflow-Inestigation-details.html'">
+              </ng-include>
+            </div>
+            <div uib-accordion-group class="his-panel" is-open="true" heading="Check List" template-url="his-heading-template.html">
+              <ng-include src="'app/consumer/his17_1/RIS/screens/templates/RIS-techician-workflow-Check-List.html'">
+              </ng-include>
+            </div>
+
+            <div uib-accordion-group class="his-panel" is-open="true" heading="Consumables" template-url="his-heading-template.html">
+              <ng-include src="'app/consumer/his17_1/RIS/screens/templates/RIS-techician-workflow-Consumables.html'">
+              </ng-include>
+            </div>
+        </uib-accordion>
+        </div>
+        <div class="row center-block"> 
+            <button type="button" ng-click="inProgCompAbort(invDet,checkListRec,checkListRec1,checkListRemarks,consumableFilms,consumableContrast,queGrp,'inProgress')" class="his-btn his-btn-info">In Progess</button>
+
+            <button type="button" ng-disabled="!invDet.Ccode" ng-click="inProgCompAbort(invDet,checkListRec,checkListRec1,checkListRemarks,consumableFilms,consumableContrast,queGrp,'Complete')" class="his-btn his-btn-info">Complete</button>
+            <button type="button" ng-click="abort(invDet,checkListRec,checkListRec1,checkListRemarks,consumableFilms,consumableContrast,queGrp,'Abort')" class="his-btn his-btn-info">Abort</button>
+            <!-- <button type="button" ng-click="complete(invDet)" class="his-btn his-btn">Complete</button>
+            <button type="button" ng-click="abort('md')" class="his-btn his-btn-info">Abort</button> -->
+        </div>
+    </form>
+<script type="text/ng-template" id="his-heading-template.html">
+<div>
+    <hr class="his-heading-line">
+    <h4>
+        <span tabindex="0" class="accordion-toggle" ng-click="toggleOpen()" uib-accordion-transclude="heading">
+      <span class="his-section-heading-text">{{heading}}</span>
+        </span>
+        <i class="his-section-heading-icon pull-right fa" ng-click="toggleOpen()" ng-class="{'fa-angle-double-right':!isOpen,'fa-angle-double-down':isOpen}"></i>
+    </h4>
+</div>
+<div class="panel-collapse collapse" uib-collapse="!isOpen">
+    <div ng-transclude></div>
+</div>
+</script>

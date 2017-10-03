@@ -1,0 +1,143 @@
+<form name="resultentryForm" novalidate autocomplete="off">
+<div class="row">
+  <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+    <div class="his-container">
+      <div class="his-custom-calendar">
+        <div class="his-form">
+          <div class="col-sm-12 col-md-12 col-lg-12 padding-zero">
+            <div class="form-group">
+              <label class="label-padding"><span class="req-field"></span>Reported Date &amp; Time</label>
+              <br>
+              <div class="input-group">
+                <input class="form-control" datetimepicker ng-model="resultentry.reportDate" name="reportDate" options="theme.CD.dateOnly" ng-required="true" />
+                <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+              </div>
+              <span style="color: red" ng-show="resultentryForm.reportDate.$error.required && (resultentryForm.reportDate.$dirty || showErrorsForResultEntry)" class="error-msg-cls">
+                  Is Required
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+    <div class="form-group">
+      <label>Investigation</label>
+      <input type="text" class="form-control" ng-model="resultentry.investigation" placeholder="Investigation" disabled>
+    </div>
+  </div>
+  <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+    <div class="form-group">
+      <label>Modality</label>
+	  <select  ng-model="resultentry.modality" class="form-control" ng-options="modalities.CODE as modalities.DESCRIPTION for modalities in modalitiesDetails" disabled>
+			<option value="">Select</option>                
+		</select>
+    </div>
+  </div>
+  <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+    <div class="form-group">
+      <label>Ordered By</label>
+      <input type="text" class="form-control" ng-model="resultentry.orderBy" placeholder="Ordered By" disabled>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+    <div class="form-group">
+      <label>Reported By</label>
+      <input type="text" class="form-control" ng-model="resultentry.reported" placeholder="Reported By" disabled>
+    </div>
+  </div>
+  <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+    <div class="form-group">
+      <label><span class="req-field"></span>Template</label>
+      <select class="form-control" ng-required="true" name="template" ng-model="resultentry.template" ng-change="templatechange(resultentry)" ng-options="template.DESCRIPTION for template in templateDetails track by template.CODE">
+        <option value="">Select</option>
+      </select>
+    </div>
+    <span style="color: red" ng-show="resultentryForm.template.$error.required && (resultentryForm.template.$dirty || showErrorsForResultEntry)" class="help-block error-msg-cls">
+      Is Required
+    </span>
+  </div>
+</div>
+<br>
+<div>
+  <hr class="his-heading-line">
+  <h4>
+        <span tabindex="0" class="accordion-toggle" ng-click="toggleOpen()" uib-accordion-transclude="heading" role="button">
+          <span class="his-section-heading-text sub-heading-text">Templates</span>
+        </span>
+      </h4>
+</div>
+<div class="row">
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <h5 style="border-bottom: 1px solid #e6e2e2; color: #3596ff; margin-bottom: 5px; margin-top: 5px;"></h5>
+    <wysiwyg-edit content="resultentry.textEditorContent" config='editorConfig'></wysiwyg-edit>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <div class="form-group">
+      <label>Impression</label>
+      <textarea class="form-control" placeholder="Enter" ng-model="resultentry.impression"></textarea>
+    </div>
+  </div>
+</div>
+<!---------------------------------------------------------------------->
+<br>
+<div>
+  <hr class="his-heading-line">
+  <h4>
+        <span tabindex="0" class="accordion-toggle" ng-click="toggleOpen()" uib-accordion-transclude="heading" role="button">
+          <span class="his-section-heading-text">Attachments</span>
+        </span>
+      </h4>
+</div>
+<!---------------------------------------------------------------------->
+
+<div class="row">
+<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+<button class="button his-btn his-btn-info" role="button"  ng-model= "file" ngf-select="uploadFiles($files)" multiple="multiple">
+<i class="fa fa-cloud-upload" id="documentUpload" aria-hidden="true"></i> &nbsp;Upload Files</button> &nbsp;&nbsp;
+
+  <span class="docFormat">&nbsp;<!-- <span class="req-field"></span> -->Supported files (.jpeg,.pdf) Max: 5MB</span>
+</div>
+ 
+</div> 
+<!-- <div ng-repeat="opt in items">
+   <p>{{items}}</p>
+
+</div>  -->
+<div class="row">
+ <div class="col-xs-12 col-sm-12 col-md-7 col-lg-7">
+        <span ng-repeat="opt in itemsUploadedFiles"> &nbsp; &nbsp;<!-- 200Kb <span>|</span> -->
+        <a style="cursor: pointer;text-decoration: none;color: inherit;"> <i class="fa fa-times" ng-click="deleteuploaderFile(opt.docSeqId,$index)"></i> <span ng-click="showuploaderFile(opt.docSeqId,opt.docName)">{{opt.docName}}</span></a></span>
+    </div>
+</div>
+    <!-- <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+        <p><span class="his-btn-cross"><i class="fa fa-times"></i></span>200Kb <span>|</span> Treatment.doc</p>
+        <p><span class="his-btn-cross"><i class="fa fa-times"></i></span>200Kb <span>|</span> Treatment.doc</p>
+    </div> -->
+    
+    <!---div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+        <p><span class="his-btn-cross"><i class="fa fa-times"></i></span>200Kb <span>|</span> <span>Treatment.doc</span></p>
+        <p>
+            <span class="his-btn-cross"><i class="fa fa-times"></i></span>200Kb <span>|</span> <span>Treatment.doc</span>
+            <span class="progress">
+                <div class="progress-bar" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width:50%">
+                  50%
+                </div>
+            </span>
+        </p>
+    </div-->
+<input type="hidden" ng-model="dataVal.orderDetailId">
+<div class="row">
+  <div class="pull-right">
+    <button type="button" ng-disabled="saveRERV" ng-click="resultEntrySave(resultentry,'Entry',resultentryForm)" class="his-btn his-btn-default">Save</button>
+    <button type="button" ng-disabled="verifyRERV" ng-click="resultEntrySave(resultentry,'Verify',resultentryForm)" class="his-btn his-btn-info">Verify</button>
+    <button type="button" ng-disabled="printRERV" ng-click="printPdfForResultEntry(dataVal,'1',resultentryForm)" class="his-btn his-btn-info">Print</button>
+  </div>
+</div>
+
+</form>

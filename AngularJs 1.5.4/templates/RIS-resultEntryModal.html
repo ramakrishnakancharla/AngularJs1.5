@@ -1,0 +1,62 @@
+
+
+<div class="his-container">
+<div class="row1">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <ng-include src="'app/consumer/his17_1/RIS/screens/sections/patient.banner.html'">
+        </ng-include>
+    </div>
+</div>
+
+    
+
+<div class="row1">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <div class="container1" ng-init="activeFirst = 1">
+            <ul class="nav nav-plain">
+                <li ng-class="{active:activeFirst===1}">
+                <!-- <a href ng-click="activeFirst = 1">RESULT DETAILS</a> -->
+                </li>
+                <!-- <li ng-class="{active:activeFirst===2}"><a href ng-click="activeFirst = 2">IMAGES/ATTACHED IMAGES</a></li> -->
+            </ul>
+
+            <div class="tab-content">
+                <div ng-show="activeFirst === 1">
+                    <div class="container-fluid his-container padding-zero" style="margin-top:5px">
+                        <uib-accordion close-others="theme.oneAtATime">
+                            <div uib-accordion-group class="his-panel" is-open="true"  heading="RESULT DETAILS" template-url="his-heading-template.html">
+                                <ng-include src="'app/consumer/his17_1/RIS/screens/sections/risResultEntryAccordianNew.html'">
+                                </ng-include>
+                            </div>
+
+                            <!--<div uib-accordion-group class="his-panel" heading="Standard Grid" template-url="his-heading-template.html">
+                                <ng-include src="'app/consumer/his17_1/common/theme/sections/his.theme.section.grid.html'">
+                                </ng-include>
+                            </div>-->
+                        </uib-accordion>
+                    </div>
+                </div>
+                <div ng-show="activeFirst === 2">
+                    <h5>Menu 2 Content</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<script type="text/ng-template" id="his-heading-template.html">
+
+  <div>
+    <hr class="his-heading-line">
+    <h4>
+        <span tabindex="0" class="accordion-toggle" ng-click="toggleOpen()" uib-accordion-transclude="heading">
+
+          <span class="his-section-heading-text">{{heading}}</span>
+        </span>
+        <i class="his-section-heading-icon pull-right fa" ng-click="toggleOpen()" ng-class="{'fa-angle-double-right':!isOpen,'fa-angle-double-down':isOpen}"></i>
+      </h4>
+  </div>
+  <div class="panel-collapse collapse" uib-collapse="!isOpen">
+    <div ng-transclude></div>
+  </div>
+</script>

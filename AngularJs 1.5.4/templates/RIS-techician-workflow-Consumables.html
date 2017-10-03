@@ -1,0 +1,56 @@
+<div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-6">
+        <h5 class="heading">FILMS</h5>
+        <!--<div class="grid" ui-grid="gridFlimsOption"></div>-->
+		<table class="table table-responsive table-bordered my-table subtable scrollCls" style="height:200px !important; overflow:auto">
+			<thead>
+				<tr>
+					<th>Film Code</th>
+					<th>Film Name</th>
+					<th>Available Quantity</th>
+					<th>Used Quantity</th>
+					<th>Reason</th>
+				</tr>
+			</thead>
+            <tbody>
+				<tr  ng-repeat="x in filmsDetails">
+					<td>{{x.filmCode}}
+						<input type="hidden" ng-model="consumableFilms['code_'+x.filmCode]">
+						<input type="hidden" ng-model="consumableFilms['seqId_'+x.filmCode]">
+					</td>
+					<td>{{x.filmName}}</td>
+					<td>{{x.filmQuantity}}</td>
+					<td><input type="text" class="form-control" ng-model="consumableFilms['used_'+x.filmCode]"></td>
+					<td><input type="text" class="form-control" ng-model="consumableFilms['reason_'+x.filmCode]"></td>
+				</tr>
+            </tbody>
+		</table>
+    </div>
+    
+     <div class="col-xs-12 col-sm-12 col-md-6">
+         <h5 class="heading">CONTRAST</h5>
+        <!--<div class="grid" ui-grid="gridContrastOption"></div>-->
+		<table class="table table-responsive table-bordered my-table subtable">
+			<thead>
+				<tr>
+					<th>Contrast Code</th>
+					<th>Contrast Name</th>
+					<th>Available Quantity</th>
+					<th>Used Quantity</th>
+					<th>Reason</th>
+				</tr>
+			</thead>
+            <tbody>
+				<tr  ng-repeat="x in contrastDetails">
+					<td>{{x.contrastCode}}
+						<input type="hidden" ng-model="consumableContrast['seqId_'+x.contrastCode]">
+					</td>
+					<td>{{x.contrastName}}</td>
+					<td>{{x.contrastQuantity}}</td>
+					<td><input type="text" class="form-control" ng-model="consumableContrast['used_'+x.contrastCode]"></td>
+					<td><input type="text" class="form-control" ng-model="consumableContrast['reason_'+x.contrastCode]"></td>
+				</tr>
+            </tbody>
+		</table>
+    </div>
+</div>

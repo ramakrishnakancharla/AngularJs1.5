@@ -1,0 +1,49 @@
+.ris-ui-custom-dropdown {
+    width: 180px !important;
+    left: 902px !important;
+}
+.bed-custom-dropdown{
+    width: 22% !important;
+    left: 55px !important;
+    margin-top: 0;
+    
+}
+
+.ris-ui-custom-dropdown li,.bed-custom-dropdown li {
+    padding: 0 15px !important;
+  .text-red{
+    color: red !important;   
+}
+}
+
+.ris-ui-custom-dropdown li a,.bed-custom-dropdown li a {
+    border-bottom: 1px solid #ccc;
+    padding: 4px 0 !important;
+    font-size: 12px !important;   
+}
+
+.ris-ui-custom-dropdown li:last-child a,.bed-custom-dropdown li:last-child a {
+    border-bottom: 0 !important;
+}
+
+.ris-ui-custom-dropdown:before,.bed-custom-dropdown:before {
+    content: "";
+    border-bottom: 8px solid #fff;
+    border-right: 8px solid transparent;
+    border-left: 8px solid transparent;
+    position: absolute;
+    top: -8px;
+    right: 65px;
+    z-index: 10;
+}
+
+.ris-ui-custom-dropdown:after,.bed-custom-dropdown:after {
+    content: "";
+    border-bottom: 10px solid #ccc;
+    border-right: 10px solid transparent;
+    border-left: 10px solid transparent;
+    position: absolute;
+    top: -10px;
+    right: 63px;
+    z-index: 9;
+}

@@ -1,0 +1,29 @@
+<div>&nbsp;</div>
+<script src="../src/app/consumer/his17_1/RIS/screens/directive/easeljs-0.8.2.min.js"></script>
+<div class="his-latest-adt container-fluid his-container padding-zero">
+    <div class="container-fluid padding-zero">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 padding-zero">
+            <uib-accordion close-others="theme.oneAtATime">
+	            <div uib-accordion-group class="his-panel" is-open="true" heading="Work List" template-url="his-heading-template.html">
+		            <ng-include src="'app/consumer/his17_1/RIS/screens/sections/order-work-list-statistics.html'"></ng-include>
+		            <ng-include src="'app/consumer/his17_1/RIS/screens/sections/order-work-list-search.html'"></ng-include>
+	            </div>
+            </uib-accordion>
+            <ng-include src="'app/consumer/his17_1/RIS/screens/sections/order-work-list-grid.html'"></ng-include>
+		</div>
+    </div>
+</div>
+<script type="text/ng-template" id="his-heading-template.html">
+<div>
+    <hr class="his-heading-line">
+    <h4>
+        <span tabindex="0" class="accordion-toggle" ng-click="toggleOpen()" uib-accordion-transclude="heading">
+      <span class="his-section-heading-text">{{heading}}</span>
+        </span>
+        <i class="his-section-heading-icon pull-right fa" ng-click="toggleOpen()" ng-class="{'fa-angle-double-right':!isOpen,'fa-angle-double-down':isOpen}"></i>
+    </h4>
+</div>
+<div class="panel-collapse collapse" uib-collapse="!isOpen">
+    <div ng-transclude></div>
+</div>
+</script>

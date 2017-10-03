@@ -1,0 +1,39 @@
+<!--Pending -1 Arrived -2 inprogress-4 Investigation completed-5 Result entered -6 Result verification-8 Report Printed- 10
+Report Generated-11 Addendum -9  Deliviery-15 -->
+<div class="row statistics-tabs">
+    <div class="col-sm-12 col-md-12 col-lg-12"  ng-init="data='pending'">
+	<div  ng-repeat="obj in finalStatistics" class="col-xs-12 col-sm-3 col-md-3 col-lg-3  padding-left-zero" ng-click="StatisticGridLoad(obj.RIS_ORD_WRK_CODE)">
+        <div class="statistic-layout" ng-class="{
+                                        'red-border': obj.RIS_ORD_WRK_CODE==1,
+                                        'yellow-border': obj.RIS_ORD_WRK_CODE==2,
+                                        'blue-border': obj.RIS_ORD_WRK_CODE==4,
+                                        'green-border': obj.RIS_ORD_WRK_CODE==5,
+                                        'lightgreen-border': obj.RIS_ORD_WRK_CODE==6,
+                                        'greendup-border': obj.RIS_ORD_WRK_CODE==8,										
+										'yellownew-border': obj.RIS_ORD_WRK_CODE==10,
+                                        'bluenew-border': obj.RIS_ORD_WRK_CODE==11,
+                                        'greennew-border': obj.RIS_ORD_WRK_CODE==9,										
+                                        'purple-border': obj.RIS_ORD_WRK_CODE==15,}">
+
+            <div class="statistic-number" ng-class="{
+                                        'red-bg': obj.RIS_ORD_WRK_CODE==1,
+                                        'yellow-bg': obj.RIS_ORD_WRK_CODE==2,
+                                        'blue-bg': obj.RIS_ORD_WRK_CODE==4,
+                                        'green-bg': obj.RIS_ORD_WRK_CODE==5,
+                                        'lightgreen-bg': obj.RIS_ORD_WRK_CODE==6,
+                                        'greendup-bg': obj.RIS_ORD_WRK_CODE==8,										
+										'yellownew-bg': obj.RIS_ORD_WRK_CODE==10,
+                                        'bluenew-bg': obj.RIS_ORD_WRK_CODE==11,
+                                        'greennew-bg': obj.RIS_ORD_WRK_CODE==9,										
+                                        'purple-bg': obj.RIS_ORD_WRK_CODE==15,}">
+
+            <strong>{{obj.Cnt?obj.Cnt:"0"}}</strong></div>
+            <div class="statistic-text"><span>{{obj.DESCRIPTION}}</span>
+           
+            </div>
+        </div>
+    </div>
+
+	
+    </div>
+</div>

@@ -1,0 +1,150 @@
+<div class="row">
+	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">        
+		<div class="deposit-masters-background-color">
+			<form name="TechnicianForm" novalidate autocomplete="off">
+				<div class="row">
+					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 padding-zero">
+						<div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+							<div class="form-group">
+								<label>Patient Name</label>
+									<input type="text" class="form-control" ng-model="Tech.patientName" name="patientName" placeholder="Enter" allow-pattern="(\W|[a-z])" >
+							</div>
+						</div>
+
+						<div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+							<div class="form-group">
+								<label>MR No.</label>
+								<input type="text" class="form-control" ng-model="Tech.MRNO" name="MRNO" placeholder="Enter" allow-pattern="[a-zA-Z0-9]">
+							</div>
+						</div>
+
+
+						<div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+							<div class="form-group">
+								<label>Proirity</label>
+								<select class="form-control" name="priority" ng-model="Tech.priority" 
+								ng-options="priority.CODE as priority.DESCRIPTION for priority in priorityDetails">
+									<option value="">Select</option>                         
+								</select>
+							</div>
+						</div>
+
+						<div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+							<label><span class="req-field"></span> Date</label>
+							<div class="his-custom-calendar">
+								<div class="his-form">
+									<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 padding-left-zero">
+										<div class="form-group">
+											<div class="input-group remove-date-border">
+												<input class="form-control dateType" datetimepicker  options="TechStartDateOptions" ng-change="TechFromDate(Tech.startDate)" ng-model="Tech.startDate" name="startDate" placeholder="Start" allow-pattern="(\d|\/)" ng-required="true" />
+												<span class="input-group-addon" style="background-color: #FFF;padding-top: 4.5px !important;"><span class="glyphicon glyphicon-calendar"></span></span>
+											</div>
+										</div>
+										<div ng-messages="TechnicianForm.startDate.$error" role="alert">
+											<span ng-show='showErrors' ng-message="required"  class="error-msg-cls">Required field</span>
+										</div>
+									</div>
+									<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 column-left-space">
+										<div class="form-group">
+											<div class="input-group remove-date-border">
+												<input class="form-control dateType" datetimepicker  options="TechEndDateOptions" ng-model="Tech.endDate" name="endDate" placeholder="End" allow-pattern="(\d|\/)" ng-required="true" />
+												<span class="input-group-addon" style="background-color: #FFF;padding-top: 4.5px !important;"><span class="glyphicon glyphicon-calendar"></span></span>
+											</div>
+										</div>
+										<div ng-messages="TechnicianForm.endDate.$error" role="alert">
+											<span ng-show='showErrors' ng-message="required"  class="error-msg-cls">Required field</span>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+					</div>
+				</div>
+				
+				<div class="deposit-masters-toggle-div" ng-show="options">
+					<div class="row">
+						<div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+							<div class="form-group">
+								<label>Patient ID.</label>
+									<input type="text" class="form-control" ng-model="Tech.IPNO" name="IPNO" placeholder="Enter" allow-pattern="[a-zA-Z0-9]">
+							</div>
+						</div>
+						
+						<div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+							<div class="form-group">
+								<label>Order No.</label>
+									<input type="text" class="form-control" ng-model="Tech.OrderNo" name="OrderNo" placeholder="Enter" allow-pattern="[a-zA-Z0-9]">
+							</div>
+						</div>
+						
+						<div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+							<div class="form-group">
+								<label><span class="req-field"></span> Department</label>
+								<select class="form-control" name="department" ng-model="Tech.department" ng-change="loadSubDepartment(Tech.department);" ng-required="options"
+									ng-options="department.CODE as department.DESCRIPTION for department in departmentsDetails" >
+									<option value="">Select</option>                         
+								</select>
+							</div>
+							<div ng-messages="TechnicianForm.department.$error" role="alert">
+								<span ng-show='showErrors' ng-message="required"  class="error-msg-cls">Required field </span>
+							</div>
+						</div>
+						
+						<div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+							<div class="form-group">
+								<label><span class="req-field"></span> Sub Department</label>
+								<select class="form-control" name="subDepartment" ng-model="Tech.subDepartment" ng-required="options" 
+									ng-options="subDepartment.CODE as subDepartment.DESCRIPTION for subDepartment in subDepartmentsDetails">
+									<option value="">Select</option>                         
+								</select>
+							</div>
+							<div ng-messages="TechnicianForm.subDepartment.$error" role="alert">
+								<span ng-show='showErrors' ng-message="required" class="error-msg-cls">Required field</span>
+							</div>
+						</div>
+					</div>
+					
+					<div class="row">
+						<div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+							<div class="form-group">
+								<label>Patient Type</label>
+								<select class="form-control" name="patientType" ng-model="Tech.patientType" 
+									ng-options="patientType.CODE as patientType.DESCRIPTION for patientType in patientsTypeDetails">
+									<option value="">All</option>                         
+								</select>
+							</div>
+						</div> 
+						
+						<div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+							<div class="form-group">
+								<label>Status</label>
+								<select class="form-control" name="statusType" ng-model="Tech.statusType" 
+									ng-options="status.CODE as status.DESCRIPTION for status in statusDetails" >
+									<option value="">Select</option>                         
+								</select>
+							</div>
+						</div>
+		
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+						<span class="toggle-show-details">
+							<a href="" ng-click="options = !options">
+								<i ng-class="{'fa fa-minus-circle': options, 'fa fa-plus-circle': !options}"></i>{{options && '  Less options!' || '  More options'}}
+							</a>
+						</span>
+					</div>
+				</div>
+				
+				<div class="row">
+					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-right">
+						<button class="his-btn btn-primary btn-sm" ng-click="TechSearchClick(Tech,TechnicianForm)" ><i class="fa fa-search"></i> SEARCH</button>
+						<a ng-click="TechClear(Tech,TechnicianForm)"><u>Clear</u></a>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
